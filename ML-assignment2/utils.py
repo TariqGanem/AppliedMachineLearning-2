@@ -21,11 +21,9 @@ def _pred2rokah_format(pred):
     return df
 
 
-def to_file(pred, fname, to_kaggle=False, msg=""):
+def to_file(pred, fname):
     df = _pred2rokah_format(pred)
     df.to_csv("out/{}.csv".format(fname), index=False)
-    if to_kaggle:
-        os.system('kaggle competitions submit -c bgudrugchallenge2022 -f out/{0}.csv -m "{1}"'.format(fname, msg))
 
 
 def load_data():
